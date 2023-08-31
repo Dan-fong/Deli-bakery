@@ -233,7 +233,6 @@ const styles = StyleSheet.create({
     elevation: 5,
   },
   centeredView: {
-    marginTop: -30,
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',

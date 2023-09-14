@@ -22,8 +22,8 @@ export default function App() {
     <View style={styles.contenedor}>
 
 
-        {/*<Home />*/}
-        <Products category="3 Leches" />
+        <Home />
+    {/*<Products category="Especiales" />*/}
 
     </View>
   );

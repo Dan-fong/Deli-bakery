@@ -14,7 +14,7 @@ return (
             <FlatList
                 style={styles.contenedorSucursales}
                 data={sucursales}
-                key={() => sucursales.id}
+                key={(key) => key.id}
                 renderItem={({ item }) => <BranchItem navigation={navigation} item={item} />}    
             />
         </View>

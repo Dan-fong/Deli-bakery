@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View, TextInput, Pressable } from 'react-native'
-import React, {useState} from 'react'
+import React from 'react'
 import { color } from '../theme/colors'
 import { useFonts } from 'expo-font';
 import { AntDesign } from '@expo/vector-icons'; 
@@ -15,14 +15,17 @@ const Search = ({ text, setText }) => {
     const [fontsLoaded] = useFonts({
         'Montserrat': require('../../assets/Fonts/Montserrat-Regular.ttf')
         })
-  return (
-    <View style={styles.container}>
-        <TextInput placeholder="Buscar un objeto" style={styles.input} onChangeText={(value) => setText(value)} value={text} />
-        <Pressable onPress={() => clear()}>
-            <AntDesign name="close" size={24} color="black" />
-        </Pressable>
-    </View>
-  )
+    if(fontsLoaded === false){
+        return;
+    }
+    return (
+        <View style={styles.container}>
+            <TextInput placeholder="Buscar un objeto" style={styles.input} onChangeText={(value) => setText(value)} value={text} />
+            <Pressable onPress={() => clear()}>
+                <AntDesign name="close" size={24} color="black" />
+            </Pressable>
+        </View>
+    )
 }
 
 export default Search

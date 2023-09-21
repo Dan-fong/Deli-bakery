@@ -2,11 +2,13 @@ import { StyleSheet, Text, View, Pressable } from 'react-native'
 import React from 'react'
 import { color } from '../theme/colors'
 
-const ProductItem = ({ item }) => {
+const ProductItem = ({ item, navigation }) => {
   return (
+    <Pressable onPress={() => navigation.navigate("productDetails", {item: item}, console.log(item))}>
     <View style={styles.viewItem}>
-        <Text style={styles.list}> {item.title} { item.price } </Text>
+        <Text style={styles.list}> {item.title} </Text>
     </View>
+    </Pressable>
   )
 }
 
@@ -25,11 +27,10 @@ const styles = StyleSheet.create({
         padding: 10,
         height: 110,
         width: "95%",
-        textAlign: "justify",
-        margin: "auto",
     },
     list: {
         textAlign: "justify",
+        width: "100%",
         fontSize: 20,
         fontFamily:'Montserrat',
         color: 'black'

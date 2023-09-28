@@ -18,7 +18,9 @@ const Header = ( {title, navigation}) => {
 return (
     
     <View style={styles.banner}>
-        <Pressable onPress={() => navigation.dispatch(CommonActions.goBack())}><AntDesign name="back" size={24} color="white" style={{marginLeft: 15, padding: 15, marginTop: -10}} /></Pressable>
+        <Pressable onPress={() => navigation.dispatch(CommonActions.goBack())}>
+            <AntDesign name="back" size={24} color="white" style={{marginLeft: 15, padding: 15, marginTop: -10}} />
+        </Pressable>
         <Image source={ imagen } style={{ width: 70, height: 70, marginTop: -20, marginLeft: 10 }} />
         <Text style={styles.textBanner }>{title}</Text>
     </View>

@@ -3,6 +3,7 @@ import React from 'react'
 import Categories from '../components/Categories'
 
 const Categories = ({ navigation, route }) => {
+    
     const {sucursal} = route.params
 
     console.log(sucursal)

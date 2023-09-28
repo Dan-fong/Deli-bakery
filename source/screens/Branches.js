@@ -3,12 +3,17 @@ import React from 'react'
 import BranchItem from '../components/BranchItem'
 import { color } from '../theme/colors'
 import Header from '../components/Header'
-import { sucursales } from '../data/Sucursales'
+import { useSelector } from 'react-redux'
+
+
 
 const Branches = ({ navigation }) => {
+
+    const sucursales = useSelector( state => state.branchSlice.allBranches );
+
+
 return (
     <View style={styles.contenedor} >
-
         <Header title={"Sucursales"} navigation={navigation} />
         <View style={{width:"90%"}}>
             <FlatList
@@ -17,6 +22,8 @@ return (
                 key={(key) => key.id}
                 renderItem={({ item }) => <BranchItem navigation={navigation} item={item} />}    
             />
+        </View>
+        <View style={{width: "100%", height: "250px"}}>
         </View>
     </View>
 )}
@@ -34,4 +41,4 @@ const styles = StyleSheet.create({
         height: "100%",
         backgroundColor: color.purple
     },
-})
+}) 

@@ -9,7 +9,7 @@ const Search = ({ text, setText }) => {
 
 
     const clear = () =>{
-        setText(null)
+        setText("")
     }
 
     const [fontsLoaded] = useFonts({

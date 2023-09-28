@@ -1,11 +1,13 @@
 import { StyleSheet, Text, View, FlatList } from 'react-native'
 import React from 'react'
-import {categorias} from '../data/Categorias'
 import CategoryItem from './CategoryItem'
 import Header from './Header'
 import { color } from '../theme/colors'
+import { useSelector } from 'react-redux'
 const Categories = ({ navigation }) => {
 
+
+    const categorias = useSelector(state => state.branchSlice.allCategories)
 
 return (
     <View style={styles.contenedor} >

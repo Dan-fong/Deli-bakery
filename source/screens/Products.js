@@ -2,17 +2,19 @@ import { StyleSheet, View, FlatList } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import Search from '../components/Search'
 import Header from '../components/Header'
-import { products } from '../data/Productos'
 import ProductItem from '../components/ProductItem'
+import { useSelector } from 'react-redux'
 
 const Products = ({ category, route, navigation }) => {
+
+    const products = useSelector(state => state.branchSlice.allProducts)
 
     const {item} = route.params
 
     category = item
 
     const [productFiltered, setProductFiltered] = useState([])
-    const [text, setText] = useState(null)
+    const [text, setText] = useState("")
 
     useEffect(() => {
         const filterByCategory = products.filter((el) => el.category === category)
@@ -21,8 +23,6 @@ const Products = ({ category, route, navigation }) => {
         if(text){
             const FilterTitle = products.filter((el) => el.title.toLowerCase() == text.toLowerCase())
             setProductFiltered(FilterTitle)
-            //console.log(productFiltered)
-            console.log(FilterTitle)
         }
     }, [category, text])
 

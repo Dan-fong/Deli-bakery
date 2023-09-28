@@ -5,13 +5,9 @@ import {
   View,
   TextInput,
   Pressable,
-  FlatList,
-  Modal,
   Image,
-  SafeAreaView,
 } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import { color } from '..//theme/colors';
+import { color } from '../theme/colors';
 import imagen from "../../img/Deli-Bakery.png";
 import { useFonts } from 'expo-font';
 

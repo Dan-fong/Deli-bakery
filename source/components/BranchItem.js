@@ -2,8 +2,18 @@ import { StyleSheet, Text, View, Pressable } from 'react-native'
 import React from 'react'
 import { color } from '../theme/colors'
 import { useFonts } from 'expo-font';
+import { useDispatch } from 'react-redux';
+import { setItemPressed } from '../redux/slice/branchSlice';
 
 const BranchItem = ({ item, navigation }) => {
+
+    const dispatch = useDispatch();
+
+    const onHandlePress = () => {
+        dispatch(setItemPressed(item));
+        navigation.navigate("categories", {sucursal: item})
+    }
+
 const [fontsLoaded] = useFonts({
     'Montserrat': require('../../assets/Fonts/Montserrat-Regular.ttf')
     })
@@ -13,7 +23,7 @@ const [fontsLoaded] = useFonts({
     }
 return (
     <View>
-            <Pressable onPress={() => navigation.navigate("categories", {sucursal: item})}>
+            <Pressable onPress={() => onHandlePress()}>
                 <View style={styles.viewItem}>
                     <Text style={styles.list}>{item.title} </Text>
                 </View>

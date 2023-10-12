@@ -6,6 +6,7 @@ import ConfigBranches from '../screens/ConfigBranches';
 import { Ionicons } from '@expo/vector-icons';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { color } from '../theme/colors';
+import Map from '../components/Map';
 
 const Tab = createBottomTabNavigator();
 

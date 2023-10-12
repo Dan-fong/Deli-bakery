@@ -25,7 +25,7 @@ return (
     <View>
             <Pressable onPress={() => onHandlePress()}>
                 <View style={styles.viewItem}>
-                    <Text style={styles.list}>{item.title} </Text>
+                    <Text style={styles.list}>{item} </Text>
                 </View>
             </Pressable>
     </View>

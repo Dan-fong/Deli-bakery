@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { sucursales } from "../../data/Sucursales";
 import { categorias } from "../../data/Categorias";
-import { products } from "../../data/Productos";
+import { productos } from "../../data/Productos";
 
 
 const branchSlice = createSlice({
@@ -11,7 +11,7 @@ const branchSlice = createSlice({
     initialState: {
         allBranches: sucursales,
         allCategories: categorias,
-        allProducts: products,
+        allProducts: productos,
         itemPressed: "",
         categoryPressed: "",
     },

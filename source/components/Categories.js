@@ -3,11 +3,11 @@ import React from 'react'
 import CategoryItem from './CategoryItem'
 import Header from './Header'
 import { color } from '../theme/colors'
-import { useSelector } from 'react-redux'
+import { useGetCategoriesQuery } from '../services/ecApi'
 const Categories = ({ navigation }) => {
 
 
-    const categorias = useSelector(state => state.branchSlice.allCategories)
+    const {data: categorias = []} = useGetCategoriesQuery();
 
 return (
     <View style={styles.contenedor} >

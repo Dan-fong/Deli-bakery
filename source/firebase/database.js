@@ -1,0 +1,1 @@
+export const database = "https://deli-bakery-default-rtdb.firebaseio.com/";

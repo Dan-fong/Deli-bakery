@@ -6,14 +6,18 @@ import TabNavigationCategories from './TabNavigationCategories'
 import Products from '../screens/Products'
 import TabNavigationBranches from './TabNavigationBranches'
 import ProductDetails from '../screens/productDetails'
+import Register from '../screens/Register'
+import NavTab from './NavTab'
+import Map from '../components/Map'
 
 const Stack = createNativeStackNavigator();
 
 const RootNavigation = () => {
 return (
     <Stack.Navigator screenOptions={{headerShown: false}}>
-        <Stack.Screen component={Home} name="home"  />
+        
         <Stack.Screen component={TabNavigationBranches} name="branches"  />
+        <Stack.Screen component={Map} name="mapLock" />
         <Stack.Screen component={TabNavigationCategories} name="categories"  />
         <Stack.Screen component={Products} name="products"  />
         <Stack.Screen component={ProductDetails} name="productDetails"/>

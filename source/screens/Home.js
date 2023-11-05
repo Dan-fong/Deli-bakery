@@ -14,6 +14,7 @@ import { signInWithEmailAndPassword } from 'firebase/auth';
 import { firebase_auth } from '../firebase/firebase_auth';
 import { useDispatch } from 'react-redux';
 import { setIdToken, setUser } from '../redux/slice/authSlice';
+import { Alert } from 'react-native';
 
 export default function Home({navigation}) {
 
@@ -30,7 +31,9 @@ export default function Home({navigation}) {
             dispatch(setIdToken(response._tokenResponse.idToken));
         }
         catch (e){
-            console.log("Error en iniciar sesion", e)
+            Alert.alert("Error", "Verifique sus datos e intentelo de nuevo", [
+                {title: "Ok"}
+            ])
         }
     }
 

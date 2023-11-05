@@ -16,8 +16,7 @@ const RootNavigation = () => {
 return (
     <Stack.Navigator screenOptions={{headerShown: false}}>
         
-        <Stack.Screen component={TabNavigationBranches} name="branches"  />
-        <Stack.Screen component={Map} name="mapLock" />
+        <Stack.Screen component={TabNavigationBranches} name="branch"  />
         <Stack.Screen component={TabNavigationCategories} name="categories"  />
         <Stack.Screen component={Products} name="products"  />
         <Stack.Screen component={ProductDetails} name="productDetails"/>

@@ -2,11 +2,8 @@ import { StyleSheet, SafeAreaView } from 'react-native'
 import React from 'react'
 import Categories from '../components/Categories'
 
-const Categories = ({ navigation, route }) => {
+const Categories = ({ navigation}) => {
     
-    const {sucursal} = route.params
-
-    console.log(sucursal)
 
 return (
     <SafeAreaView>

@@ -10,9 +10,9 @@ const CategoryItem = ({ item, navigation }) => {
     const dispatch = useDispatch();
 
     const onHandlePress = () =>{
-        dispatch(setItemPressed(item));
+        dispatch(setItemPressed(item.categoria));
 
-        navigation.navigate("products", {item: item})
+        navigation.navigate("products", {item: item.categoria})
     }
 
 const [fontsLoaded] = useFonts({
@@ -26,7 +26,7 @@ return (
     <View>
             <Pressable onPress={() => onHandlePress()}>
                 <View style={styles.viewItem}>
-                    <Text style={styles.list}>{item}</Text>
+                    <Text style={styles.list}>{item.categoria}</Text>
                 </View>
             </Pressable>
     </View>

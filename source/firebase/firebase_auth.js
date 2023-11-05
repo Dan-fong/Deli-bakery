@@ -1,6 +1,7 @@
 // Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import {getAuth} from 'firebase/auth'
+import firebase from 'firebase/compat/app'
+import 'firebase/compat/firestore'
+import 'firebase/compat/auth'
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -14,11 +15,16 @@ const firebaseConfig = {
     storageBucket: "deli-bakery.appspot.com",
     messagingSenderId: "887852516142",
     appId: "1:887852516142:web:03428fbdaaac7ec19b70bf",
-    measurementId: "G-CDMFZF36GS"
+    measurementId: "G-CDMFZF36GS",
+    databaseURL: "https://deli-bakery-default-rtdb.firebaseio.com/"
 };
 
 // Initialize Firebase
-export const app = initializeApp(firebaseConfig);
+// export const app = initializeApp(firebaseConfig);
 
-export const firebase_auth = getAuth(app);
+
+const app = firebase.initializeApp(firebaseConfig)
+export const firebase_auth = firebase.auth(app)
+const db = firebase.firestore()
+export default {firebase, app, db, }
 

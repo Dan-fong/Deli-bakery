@@ -19,13 +19,13 @@ const [fontsLoaded] = useFonts({
     })
 
     if(fontsLoaded === false){
-        return;
+        return null;
     }
 return (
     <View>
             <Pressable onPress={() => onHandlePress()}>
                 <View style={styles.viewItem}>
-                    <Text style={styles.list}>{item} </Text>
+                    <Text style={styles.list}> {item.nombre} </Text>
                 </View>
             </Pressable>
     </View>
@@ -48,6 +48,7 @@ const styles = StyleSheet.create({
     list: {
         textAlign: "justify",
         fontSize: 20,
-        fontFamily:'Montserrat'
+        fontFamily:'Montserrat',
+
     },
 })

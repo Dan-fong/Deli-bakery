@@ -13,10 +13,10 @@ import { useFonts } from 'expo-font';
 import { useState } from 'react';
 import { firebase_auth as auth } from '../firebase/firebase_auth';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { Alert } from 'react-native';
 
   export default function Register({navigation}) {
   
-    console.log(auth)
       const [fontsLoaded] = useFonts({
           'Montserrat': require('../../assets/Fonts/Montserrat-Regular.ttf')
       });
@@ -30,12 +30,12 @@ import { createUserWithEmailAndPassword } from 'firebase/auth';
             
             const response = await createUserWithEmailAndPassword(auth, email, password);
 
-            console.log(response)
-
             navigation.navigate("home")
 
         } catch (error) {
-            console.log("Error en el registro: ", error)
+            Alert.alert("Error", "La contraseña debe ser mayor o igual a 6 caracteres y verifica el formato del correo", [
+                {title: "OK"}
+            ])
         }
       }
 

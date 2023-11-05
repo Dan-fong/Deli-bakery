@@ -3,28 +3,44 @@ import React from 'react'
 import CategoryItem from './CategoryItem'
 import Header from './Header'
 import { color } from '../theme/colors'
-import { useGetCategoriesQuery } from '../services/ecApi'
+import firebase from '../firebase/firebase_auth'
+import { useState, useEffect } from 'react'
 const Categories = ({ navigation }) => {
 
+    const [categories, setCategories] = useState([])
 
-    const {data: categorias = []} = useGetCategoriesQuery();
+    useEffect(() => {
+        firebase.db.collection('categorias').onSnapshot((querySnapshot) => {
+            const category = [];
 
+            querySnapshot.docs.forEach((doc) => {
+                const {categoria} = doc.data();
+
+                category.push({
+                    id: doc.id,
+                    categoria
+                })
+            })
+            setCategories(category)
+        })
+    }, [])
 return (
     <View style={styles.contenedor} >
 
         <Header title={"Categorias de pasteles"} navigation={navigation} />
         <View style={{width:"90%"}}>
-            <FlatList
-                style={styles.contenedorCategorias}
-                data={categorias}
-                key={(key) => key.id}
-                renderItem={({ item }) => <CategoryItem style={styles.listItem} navigation={navigation} item={item}  />}    
+        <FlatList
+            style={styles.contenedorCategorias}
+            data={categories}
+            keyExtractor={(item) => item.id}
+            renderItem={({ item }) => (
+                <CategoryItem style={styles.listItem} navigation={navigation} item={item} />
+            )}
             />
+
         </View>
     </View>
 )}
-
-
 const styles = StyleSheet.create({
     contenedorCategorias: {
         width: "100%",

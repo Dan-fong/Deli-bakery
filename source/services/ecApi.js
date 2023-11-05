@@ -1,9 +1,9 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import { database } from '../firebase/database'
+// import { database } from '../firebase/database'
 
 export const ecApi = createApi({
   baseQuery: fetchBaseQuery({
-    baseUrl: database, 
+    baseUrl: "https://deli-bakery-default-rtdb.firebaseio.com/", 
   }),
   endpoints: (builder) => ({
     getSucursales: builder.query({
@@ -28,7 +28,7 @@ export const ecApi = createApi({
           method: 'POST',
           body: category, 
         }),
-        invalidatesTags: ['Posts']
+        invalidatesTags: ['categorias']
   }),
   reducerPath: 'ecApi', 
 })
